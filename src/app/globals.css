@@ -1,0 +1,240 @@
+/* ============================================
+   GLOBALS.CSS - Glavni stilovi aplikacije
+   ============================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Font - Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* ============================================
+   CSS VARIJABLE
+   ============================================ */
+
+:root {
+  --primary: #e95b0f;
+  --primary-hover: #d14e0a;
+  --primary-light: #fff7ed;
+  --gray: #818487;
+  --background: #f9fafb;
+  --foreground: #111827;
+  --success: #22c55e;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+
+  /* Card colors */
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+
+  /* Sidebar */
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e5e7eb;
+}
+
+/* Dark mode varijable */
+.dark {
+  --background: #2e55aa;
+  --foreground: #f8fafc;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --sidebar-bg: #1e293b;
+  --sidebar-border: #334155;
+}
+
+/* ============================================
+   BAZNI STILOVI
+   ============================================ */
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-gray-50 dark:bg-[#4771b7] text-gray-400 dark:text-gray-100 font-sans min-h-screen transition-colors duration-300;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-slate-900;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+/* ============================================
+   KOMPONENTE
+   ============================================ */
+
+@layer components {
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
+  }
+
+  .section-header {
+    @apply flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white;
+  }
+
+  .section-description {
+    @apply text-gray-500 dark:text-gray-400 mt-1;
+  }
+
+  .card-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-dot-online {
+    @apply bg-green-500;
+  }
+
+  .status-dot-offline {
+    @apply bg-red-500;
+  }
+}
+
+/* ============================================
+   UTILITY KLASE
+   ============================================ */
+
+@layer utilities {
+  .glass {
+    @apply bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#e95b0f] to-[#d14e0a] bg-clip-text text-transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animacije */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(233, 91, 15, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(233, 91, 15, 0.8);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+/* ============================================
+   THEME VARIJABLE
+   ============================================ */
+
+/* Admin tema */
+.theme-admin {
+  --accent: var(--primary);
+}
+
+/* User tema */
+.theme-user {
+  --accent: #3b82f6;
+}

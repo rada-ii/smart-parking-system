@@ -275,8 +275,8 @@ For testing purposes, you can use the demo credentials:
 
 For support and inquiries:
 
-- **Email:** support@inova-tech.rs
-- **Website:** [inova-tech.rs](https://inova-tech.rs)
+- **Email:** office@inovatechit.com
+- **Website:** [inovatech.com](https://inovatechit.com)
 
 ---
 

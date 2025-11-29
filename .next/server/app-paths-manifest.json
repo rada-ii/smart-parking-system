@@ -1,8 +1,9 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/page": "app/page.js",
+  "/login/page": "app/login/page.js",
+  "/(admin)/admin/dashboard/page": "app/(admin)/admin/dashboard/page.js",
   "/(user)/dashboard/page": "app/(user)/dashboard/page.js",
-  "/(user)/parking/page": "app/(user)/parking/page.js",
-  "/(user)/vehicles/page": "app/(user)/vehicles/page.js",
-  "/(user)/access/page": "app/(user)/access/page.js",
-  "/(user)/history/page": "app/(user)/history/page.js"
+  "/(user)/access/page": "app/(user)/access/page.js"
 }

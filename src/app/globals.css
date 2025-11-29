@@ -10,8 +10,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /* ============================================
-   CSS VARIJABLE
-   ============================================ */
+      CSS VARIJABLE
+      ============================================ */
 
 :root {
   --primary: #e95b0f;
@@ -36,17 +36,17 @@
 
 /* Dark mode varijable */
 .dark {
-  --background: #2e55aa;
-  --foreground: #f8fafc;
-  --card-bg: #1e293b;
-  --card-border: #334155;
+  --background: #1e293b;
+  --foreground: #f1f5f9;
+  --card-bg: #334155;
+  --card-border: #475569;
   --sidebar-bg: #1e293b;
   --sidebar-border: #334155;
 }
 
 /* ============================================
-   BAZNI STILOVI
-   ============================================ */
+      BAZNI STILOVI
+      ============================================ */
 
 @layer base {
   html {
@@ -54,7 +54,7 @@
   }
 
   body {
-    @apply bg-gray-50 dark:bg-[#4771b7] text-gray-400 dark:text-gray-100 font-sans min-h-screen transition-colors duration-300;
+    @apply bg-gray-50 dark:bg-slate-600 text-gray-900 dark:text-gray-100 font-sans min-h-screen transition-colors duration-300;
   }
 
   *:focus-visible {
@@ -79,8 +79,8 @@
 }
 
 /* ============================================
-   KOMPONENTE
-   ============================================ */
+      KOMPONENTE
+      ============================================ */
 
 @layer components {
   .page-container {
@@ -121,8 +121,8 @@
 }
 
 /* ============================================
-   UTILITY KLASE
-   ============================================ */
+      UTILITY KLASE
+      ============================================ */
 
 @layer utilities {
   .glass {
@@ -226,8 +226,8 @@
 }
 
 /* ============================================
-   THEME VARIJABLE
-   ============================================ */
+      THEME VARIJABLE
+      ============================================ */
 
 /* Admin tema */
 .theme-admin {

@@ -67,7 +67,7 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-gray-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 flex flex-col">
-      <header className="p-4">
+      <header className="p-2">
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl

@@ -185,7 +185,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-2 border-t border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <Logo size="sm" linkTo="/" className="justify-center mb-2" />
+          <Logo size="sm" linkTo="/" className="justify-center mb-4" />
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Inova Tech. Sva prava zadržana.
           </p>

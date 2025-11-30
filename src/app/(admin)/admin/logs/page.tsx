@@ -1,76 +1,76 @@
-'use client'
+"use client";
 
 /**
  * ADMIN LOGS (/admin/logs)
  * ========================
- * 
+ *
  * Pregled svih aktivnosti u sistemu.
- * 
+ *
  * PRIKAZUJE:
  * - Tabela svih logova
  * - Filteri: svi/uspešni/neuspešni
  * - Detalji: vreme, akcija, poruka, status
  */
 
-import { useEffect, useState } from 'react'
-import { logsApi } from '@/lib/mock-api'
-import { ActivityLog } from '@/lib/types'
-import { formatDateTime, getLogActionName } from '@/lib/utils'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
-import { EmptyState } from '@/components/ui/EmptyState'
-import { PageTransition } from '@/components/ui/PageTransition'
-import { PageLoader } from '@/components/ui/Spinner'
-import { 
-  Activity, 
-  CheckCircle, 
-  XCircle, 
+import { useEffect, useState } from "react";
+import { logsApi } from "@/lib/mock-api";
+import { ActivityLog } from "@/lib/types";
+import { formatDateTime, getLogActionName } from "@/lib/utils";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { PageTransition } from "@/components/ui/PageTransition";
+import { PageLoader } from "@/components/ui/Spinner";
+import {
+  Activity,
+  CheckCircle,
+  XCircle,
   Clock,
   Filter,
-  RefreshCw
-} from 'lucide-react'
+  RefreshCw,
+} from "lucide-react";
 
-type FilterType = 'all' | 'success' | 'failed'
+type FilterType = "all" | "success" | "failed";
 
 export default function AdminLogsPage() {
-  const [logs, setLogs] = useState<ActivityLog[]>([])
-  const [filteredLogs, setFilteredLogs] = useState<ActivityLog[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [filter, setFilter] = useState<FilterType>('all')
+  const [logs, setLogs] = useState<ActivityLog[]>([]);
+  const [filteredLogs, setFilteredLogs] = useState<ActivityLog[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [filter, setFilter] = useState<FilterType>("all");
 
   // Fetch logs
   const fetchLogs = async () => {
-    setIsLoading(true)
-    const response = await logsApi.getAll()
+    setIsLoading(true);
+    const response = await logsApi.getAll();
     if (response.success && response.data) {
-      setLogs(response.data)
-      setFilteredLogs(response.data)
+      setLogs(response.data);
+      setFilteredLogs(response.data);
     }
-    setIsLoading(false)
-  }
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    fetchLogs()
-  }, [])
+    fetchLogs();
+  }, []);
 
   // Apply filter
   useEffect(() => {
-    if (filter === 'all') {
-      setFilteredLogs(logs)
-    } else if (filter === 'success') {
-      setFilteredLogs(logs.filter(l => l.success))
+    if (filter === "all") {
+      setFilteredLogs(logs);
+    } else if (filter === "success") {
+      setFilteredLogs(logs.filter((l) => l.success));
     } else {
-      setFilteredLogs(logs.filter(l => !l.success))
+      setFilteredLogs(logs.filter((l) => !l.success));
     }
-  }, [filter, logs])
+  }, [filter, logs]);
 
   // Stats
-  const successCount = logs.filter(l => l.success).length
-  const failedCount = logs.filter(l => !l.success).length
+  const successCount = logs.filter((l) => l.success).length;
+  const failedCount = logs.filter((l) => !l.success).length;
 
   if (isLoading) {
-    return <PageLoader message="Učitavanje logova..." />
+    return <PageLoader message="Učitavanje logova..." />;
   }
 
   return (
@@ -80,7 +80,9 @@ export default function AdminLogsPage() {
         <div className="section-header">
           <div>
             <h1 className="section-title">Aktivnosti</h1>
-            <p className="section-description">Istorija svih događaja u sistemu</p>
+            <p className="section-description">
+              Istorija svih događaja u sistemu
+            </p>
           </div>
           <Button variant="secondary" onClick={fetchLogs}>
             <RefreshCw className="w-4 h-4" />
@@ -91,33 +93,33 @@ export default function AdminLogsPage() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4">
           <button
-            onClick={() => setFilter('all')}
+            onClick={() => setFilter("all")}
             className={`p-4 rounded-xl border-2 transition-all ${
-              filter === 'all' 
-                ? 'border-primary-500 bg-primary-50' 
-                : 'border-gray-100 bg-white hover:border-gray-200'
+              filter === "all"
+                ? "border-primary-500 bg-primary-50"
+                : "border-gray-100 bg-white hover:border-gray-200"
             }`}
           >
             <p className="text-2xl font-bold text-gray-900">{logs.length}</p>
             <p className="text-sm text-gray-500">Ukupno</p>
           </button>
           <button
-            onClick={() => setFilter('success')}
+            onClick={() => setFilter("success")}
             className={`p-4 rounded-xl border-2 transition-all ${
-              filter === 'success' 
-                ? 'border-green-500 bg-green-50' 
-                : 'border-gray-100 bg-white hover:border-gray-200'
+              filter === "success"
+                ? "border-green-500 bg-green-50"
+                : "border-gray-100 bg-white hover:border-gray-200"
             }`}
           >
             <p className="text-2xl font-bold text-green-600">{successCount}</p>
             <p className="text-sm text-gray-500">Uspešnih</p>
           </button>
           <button
-            onClick={() => setFilter('failed')}
+            onClick={() => setFilter("failed")}
             className={`p-4 rounded-xl border-2 transition-all ${
-              filter === 'failed' 
-                ? 'border-red-500 bg-red-50' 
-                : 'border-gray-100 bg-white hover:border-gray-200'
+              filter === "failed"
+                ? "border-red-500 bg-red-50"
+                : "border-gray-100 bg-white hover:border-gray-200"
             }`}
           >
             <p className="text-2xl font-bold text-red-600">{failedCount}</p>
@@ -132,7 +134,11 @@ export default function AdminLogsPage() {
               <EmptyState
                 icon={<Activity className="w-8 h-8" />}
                 title="Nema aktivnosti"
-                description={filter !== 'all' ? 'Nema rezultata sa ovim filterom' : 'Još uvek nema zabeleženih aktivnosti'}
+                description={
+                  filter !== "all"
+                    ? "Nema rezultata sa ovim filterom"
+                    : "Još uvek nema zabeleženih aktivnosti"
+                }
                 className="py-12"
               />
             ) : (
@@ -156,8 +162,8 @@ export default function AdminLogsPage() {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {filteredLogs.map((log, idx) => (
-                      <tr 
-                        key={log.id} 
+                      <tr
+                        key={log.id}
                         className="hover:bg-gray-50 transition-colors animate-fade-in"
                         style={{ animationDelay: `${idx * 30}ms` }}
                       >
@@ -184,7 +190,7 @@ export default function AdminLogsPage() {
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-gray-600 text-sm">
+                          <span className="text-zinc-900 text-sm">
                             {log.message}
                           </span>
                         </td>
@@ -204,5 +210,5 @@ export default function AdminLogsPage() {
         </Card>
       </div>
     </PageTransition>
-  )
+  );
 }

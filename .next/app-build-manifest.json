@@ -61,6 +61,26 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(admin)/layout.js"
     ],
+    "/(user)/settings/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(user)/settings/page.js"
+    ],
+    "/(admin)/admin/logs/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(admin)/admin/logs/page.js"
+    ],
+    "/(admin)/admin/groups/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(admin)/admin/groups/page.js"
+    ],
+    "/(admin)/admin/devices/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(admin)/admin/devices/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

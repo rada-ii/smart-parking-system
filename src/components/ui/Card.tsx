@@ -31,7 +31,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "default", hover = false, ...props }, ref) => {
     const variants = {
       default:
-        "bg-white dark:bg-slate-700 border border-gray-100 dark:border-slate-600 shadow-sm",
+        "bg-white dark:bg-[#4e577a] border border-gray-100 dark:border-slate-600 shadow-sm",
       bordered:
         "bg-white dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-500",
       elevated: "bg-white dark:bg-slate-700 shadow-lg dark:shadow-slate-900/50",

@@ -70,10 +70,15 @@ export default function UserLoginPage() {
       <header className="p-4">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl
+             bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600
+             text-gray-700 dark:text-gray-200 font-medium
+             hover:border-blue-500 dark:hover:border-blue-400
+             hover:bg-blue-50 dark:hover:bg-blue-900/20
+             transition-all shadow-sm hover:shadow-md"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span className="text-sm">Nazad</span>
+          <span>Nazad</span>
         </Link>
       </header>
 
